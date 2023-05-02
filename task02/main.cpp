@@ -56,13 +56,13 @@ void collide_particle_ball(
   //             no friction. You do not need to change the positions.
 
   // comment out the line below
-  p.velo -= 2.f * (p.velo - ball_velo).dot(plane_norm) * plane_norm;
+  //  p.velo -= 2.f * (p.velo - ball_velo).dot(plane_norm) * plane_norm;
 
   // write a few lines of code to compute the velocity of ball and particle
   // please uncomment the lines below
-  // const Eigen::Vector2f impulse =
-  // p.velo +=
-  // ball_velo +=
+   const Eigen::Vector2f impulse = 2.f * (ball_velo - p.velo) / (1.f / ball_mass + 1.f / particle_mass);
+   p.velo += impulse.dot(plane_norm) * plane_norm / particle_mass;
+   ball_velo -= impulse.dot(plane_norm) * plane_norm / ball_mass;
 }
 
 /**
