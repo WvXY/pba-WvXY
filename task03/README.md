@@ -42,11 +42,11 @@ Run the program with different numbers of the particles (5k, 10k, and 20k).
 The number of the particle can be set at `line #189`  in [main.cpp](main.cpp).
 Record the computation time by filling the table below.     
 
-| #particle | time |
-| --- | --- |
-| 5000 | ? |
-| 10000 | ? |
-| 20000 | ? |
+| #particle | time    |
+| --- |---------|
+| 5000 | 13532ms |
+| 10000 | 53692ms |
+| 20000 | 217149ms|
 
 
 Take a screenshot image (it should look like image at the top) after 200 steps for the 20k particles. 
@@ -77,9 +77,9 @@ Record the computation time by filling the table below.
 
 | #particle | time |
 | --- | --- |
-| 5000 | ? |
-| 10000 | ? |
-| 20000 | ? |
+| 5000 | 3596ms |
+| 10000 | 7605ms |
+| 20000 | 19094ms |
 
 With the simulation with 20k particles, run the program for 200 steps. 
 Then save the screenshot image, overwriting `task03/problem2.png`.

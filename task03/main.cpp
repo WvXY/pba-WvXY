@@ -14,6 +14,7 @@
 
 #include "../src/pba_util_glfw.h"
 #include "../src/pba_util_gl.h"
+#include <cassert>
 
 /**
  * particle class (radius = 0)
@@ -172,6 +173,8 @@ void set_force_accelerated(
         } else { // far field approximation
           // write a few lines of code here to compute the force from far grid.
           // use the center for the gravity of the grid : `acc.grid2cg[jy * num_div + jx]`
+          unsigned int num_particles_grid = acc.grid2idx[jy * num_div + jx + 1] - acc.grid2idx[jy * num_div + jx];
+          particles[ip].force += gravitational_force(acc.grid2cg[jy * num_div + jx] - particles[ip].pos) * num_particles_grid;
         }
       }
     }
@@ -212,8 +215,8 @@ int main() {
       if( i_step % 20 == 0 ){ std::cout << i_step << " steps in " << num_step << " steps computed" << std::endl; }
 
       // switch brute-force/accelerated computation here by uncomment/comment below
-      set_force_bruteforce(particles);
-      // set_force_accelerated(particles, acceleration, box_size, num_div);
+      //set_force_bruteforce(particles);
+      set_force_accelerated(particles, acceleration, box_size, num_div);
 
       for (auto &p: particles) {
         // leap frog time integration
