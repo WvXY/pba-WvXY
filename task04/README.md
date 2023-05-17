@@ -57,11 +57,11 @@ Run the program with different numbers of the particles (5k, 10k, and 20k).
 The number of the particle can be set at `line #208`  in [main.cpp](main.cpp).
 Record the computation time by filling the table below.     
 
-| #points | time |
-| --- | --- |
-| 5000 | ? |
-| 10000 | ? |
-| 20000 | ? |
+| #points | time   |
+| --- |--------|
+| 5000 | 3291ms |
+| 10000 | 4957ms |
+| 20000 | 9699ms |
 
 
 ## Problem 2
@@ -75,11 +75,11 @@ Write a few lines of code around `line #115` to accelerate the search.
 Run the program with different numbers of the particles (5k, 10k, and 20k). 
 Record the computation time by filling the table below.
 
-| #points | time |
-| --- | --- |
-| 5000 | ? |
-| 10000 | ? |
-| 20000 | ? |
+| #points | time  |
+| --- |-------|
+| 5000 | 195ms |
+| 10000 | 286ms |
+| 20000 | 728ms |
 
 
 ## After Doing the Assignment

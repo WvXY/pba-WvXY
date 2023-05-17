@@ -117,6 +117,8 @@ void nearest_kdtree(
   // Cull the tree branch whose nodes will not be the minimum distance points.
   // Use the "signed_distance_aabb" function above.
 
+  if (signed_distance_aabb(pos_in, x_min, x_max, y_min, y_max) > (pos_near - pos_in).norm()) { return; }
+
   const Eigen::Vector2f pos = nodes[idx_node].pos;
   if ((pos - pos_in).norm() < (pos_near - pos_in).norm()) { pos_near = pos; } // update the nearest position
 
@@ -205,7 +207,7 @@ int main() {
 
   std::vector<Node> nodes;
   { // constructing Kd-tree's node
-    std::vector<Eigen::Vector2f> particles(100); // set number of particles
+    std::vector<Eigen::Vector2f> particles(20000); // set number of particles
     for (auto &p: particles) { // // set coordinates
       p = Eigen::Vector2f::Random() * box_size * 0.5f;
     }
