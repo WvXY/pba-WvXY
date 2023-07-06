@@ -11,6 +11,7 @@ ELSE ()
   set(CMAKE_CXX_FLAGS "-Wall -Wextra -g")
 ENDIF ()
 
+set(OpenGL_GL_PREFERENCE GLVND) # solve Policy CMP0072 error
 #############################
 # set project name
 
